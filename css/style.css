@@ -8,41 +8,31 @@ body {
 .number {
     width: 9.7vh;
     height: 9.7vh;
+    line-height: 9.7vh;
     margin: 0.3vh;
 	background-color: #d6d6d6;
     border-radius: 20%;
     font-size: 7.3vh;
     color: #ececec;
     text-align: center;
-    padding: 0.8vh;
-    line-height: 8.2vh;
-    transition: all .2s linear;
 }
 .number.called {
-    background: url('images/numero-bg.png') center;
-    background-size: cover;
+    background-color: #ffffff;
+    border-style: solid;
     color: #000000;
     font-weight: 750;
 }
 .number.called.big {
     width: 95vh;
     height: 95vh;
-    padding: 6.9vh;
-    line-height: 81.5vh;
-    font-size: 73vh;
+    line-height: 95vh;
+    font-size: 80vh;
     position: absolute;
+    border-width: thick;
+    border-radius: 15%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.called-number {
-    float: left;
-    margin: 10px;
-    width: 200px;
-    height: 200px;
-    border-radius: 150px;
-    background: url('images/numero-bg.png') center;
-    background-size: cover;
 }
 .bottom-links {
     color:  #ececec;
@@ -53,9 +43,6 @@ body {
 }
 .bottom-links .link {
     cursor: pointer;
-}
-.bottom-links .link:hover {
-    border-bottom: 1px dashed #ececec;
 }
 .hidden {
     display: none;
