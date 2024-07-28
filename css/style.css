@@ -60,31 +60,32 @@ p a:hover {
     text-align: center;
 }
 .number {
-    width: 8vh;
-    height: 8vh;
-    margin: 0.8888vh;
-    padding: 0.35vh;
+    width: 9.2vh;
+    height: 9.2vh;
+    margin: 0.25vh;
 	background-color: #d6d6d6;
     border-radius: 20%;
-    font-size: 5.5vh;
+    font-size: 7.1vh;
     color: #ececec;
     text-align: center;
-    line-height: 7.05vh;
+    padding: 0.7vh;
+    line-height: 7.9vh;
     transition: all .2s linear;
 }
 .number.called {
     background: url('images/numero-bg.png') center;
     background-size: cover;
     color: #000000;
-    text-shadow: 0 0 7.407vh rgba(255, 255, 255, 0.664);
-    font-weight: 800;
+    font-weight: 750;
+    padding: 0.7vh;
+    line-height: 7.9vh;
 }
 .number.called.big {
-    width: 90vh;
-    height: 90vh;
-    padding: 0vh;
-    font-size: 62vh;
-    line-height: 85.5vh;
+    width: 95vh;
+    height: 95vh;
+    padding: 6.9vh;
+    line-height: 81.5vh;
+    font-size: 73vh;
     position: absolute;
     top: 50%;
     left: 50%;
