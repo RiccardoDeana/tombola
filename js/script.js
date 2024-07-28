@@ -1,5 +1,5 @@
 const tavola = document.querySelector('#tavola')
-const calledDuration = 2
+const calledDuration = 4
 
 function loadTable(){
     if (!isStorageOk()){
