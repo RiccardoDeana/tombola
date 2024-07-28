@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #f5eace;
+    background-color: #c2c2c2;
     font-family: "Montserrat", sans-serif;
 }
 tr, td {
@@ -19,16 +19,7 @@ a, a:hover, a:active, a:visited, a:focus {
 p a:hover {
     border-bottom: 1px dashed #000000;
 }
-h1.title {
-    margin: 20px 0;
-    text-shadow: 1px 2px #C63B3D;
-    color: #D1574A; 
-    font-size: 80px;
-}
-.title-2 {
-    font-size: 1.6em;
-    margin-bottom: 2em;
-}
+
 .container {
     margin: 0 auto;
     width: 1320px;
@@ -72,30 +63,28 @@ h1.title {
     width: 8vh;
     height: 8vh;
     margin: 0.8888vh;
-    padding: 1.4815vh;
-	background-color: #fcf7eb;
-    border-radius: 50%;
-    font-size: 2.963vh;
-    color: #e0dbce;
+    padding: 0.35vh;
+	background-color: #d6d6d6;
+    border-radius: 20%;
+    font-size: 5.5vh;
+    color: #ececec;
     text-align: center;
-    line-height: 5.3333vh;
+    line-height: 7.05vh;
     transition: all .2s linear;
 }
 .number.called {
     background: url('images/numero-bg.png') center;
     background-size: cover;
-    color: #c01d00;
+    color: #000000;
     text-shadow: 0 0 7.407vh rgba(255, 255, 255, 0.664);
     font-weight: 800;
 }
 .number.called.big {
-    width: 64vh;
-    height: 64vh;
-    margin: 7.111vh;
-    padding: 11.852vh;
-    font-size: 23.704vh;
-    line-height: 42.666vh;
-    margin: 0;
+    width: 90vh;
+    height: 90vh;
+    padding: 0vh;
+    font-size: 62vh;
+    line-height: 85.5vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -173,7 +162,7 @@ h1.title {
     font-size: 1.2em;
 }
 .bottom-links {
-    color: #bbb093;
+    color:  #ececec;
     text-align: right;
     position: fixed;
     bottom: 0;
@@ -183,14 +172,7 @@ h1.title {
     cursor: pointer;
 }
 .bottom-links .link:hover {
-    border-bottom: 1px dashed #bbb093;
-}
-.panel {
-    width: 100%;
-    background-color: #fcf7eb;
-    min-height: 500px;
-    border-radius: 10px;
-    padding: 16px;
+    border-bottom: 1px dashed #ececec;
 }
 .panel.last-called {
     height: 610px;
@@ -198,19 +180,6 @@ h1.title {
 .panel.home {
     margin: 0 auto;
     width: 450px;
-}
-.form-input {
-    font-family: "Montserrat", sans-serif;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 4px 4px rgba(255, 255, 255, 0.55);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    transition: all .2s ease-out; 
-    font-size: 1.2em;
-    padding: 12px 18px;
-    margin-bottom: 10px;
 }
 .form-input:focus {
     box-shadow: 4px 4px #c01d002c;
@@ -300,10 +269,7 @@ h1.title {
     right: 0;
     transform: translateY(-50%);
 }
-.single-card td.selectable:hover {
-    background-color: #f7f7f7;
-    cursor: pointer;
-}
+
 .not-found {
     padding: 3em 0;
 }
@@ -370,16 +336,7 @@ h1.title {
     }
 }
 
-body.smartphone h1.title {
-    font-size: 14vw;
-}
-body.smartphone .page, body.smartphone:fullscreen::backdrop {
-    background-color: #f5eace;
-}
-body.smartphone .page {
-    zoom: 0.45;
-    overflow: hidden;
-}
+
 
 .fullscreenAlert {
     color: #ffffff;
@@ -396,9 +353,7 @@ body.smartphone .page {
     font-size: 1.5em;
     z-index: 9999999999;
 }
-.fullscreenAlert img {
-    width: 60%;
-}
+
 
 .center {
     display: flex;
@@ -413,6 +368,6 @@ body.smartphone .page {
     top: 0px;
     right: 0px;
     bottom: 0px;
-    background: rgba(245,234,206,.9);
+    background: rgba(102, 102, 102, 0.9);
     z-index: 999;
 }
