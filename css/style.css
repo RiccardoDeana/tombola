@@ -14,18 +14,21 @@ body {
     border-radius: 20%;
     font-size: 7.3vh;
     color: #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 .number.called {
     background-color: #ffffff;
     border-style: solid;
     color: #000000;
-    font-weight: 750;
+    font-weight: 700;
 }
 .number.called.big {
     width: 95vh;
     height: 95vh;
-    line-height: 95vh;
     font-size: 80vh;
     position: absolute;
     border-width: thick;
@@ -33,6 +36,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: default;
 }
 .bottom-links {
     color:  #ececec;
@@ -54,13 +58,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#overlay    {
+#overlay {
     position: fixed;
     display: none;
     left: 0px;
