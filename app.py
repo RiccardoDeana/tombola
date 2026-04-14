@@ -45,6 +45,8 @@ def admin():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if is_admin():
+        return redirect(url_for('admin'))
     error = None
     if request.method == 'POST':
         if request.form.get('password') == ADMIN_PASSWORD:
