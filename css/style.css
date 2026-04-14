@@ -8,31 +8,34 @@ body {
 .number {
     width: 9.7vh;
     height: 9.7vh;
-    line-height: 9.7vh;
     margin: 0.3vh;
-	background-color: #d6d6d6;
+    background-color: #d6d6d6;
     border-radius: 20%;
     font-size: 7.3vh;
     color: #ececec;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
 }
 .number.called {
     background-color: #ffffff;
     border-style: solid;
     color: #000000;
-    font-weight: 750;
+    font-weight: 700;
 }
 .number.called.big {
-    width: 95vh;
-    height: 95vh;
-    line-height: 95vh;
-    font-size: 80vh;
+    width: min(95vh, 95vw);
+    height: min(95vh, 95vw);
+    font-size: min(80vh, 80vw);
     position: absolute;
     border-width: thick;
     border-radius: 15%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: default;
 }
 .bottom-links {
     color:  #ececec;
@@ -47,7 +50,7 @@ body {
 .hidden {
     display: none;
 }
-#tavola {
+#bingo {
     margin: 0;
     position: absolute;
     top: 50%;

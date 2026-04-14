@@ -1,99 +1,98 @@
-const tavola = document.querySelector('#tavola')
-const calledDuration = 3.5
+;(function () {
+    const CALLED = 'true'
+    const NOT_CALLED = 'false'
+    const STORAGE_KEY = 'tombola_v1'
+    const CALLED_DURATION = 3.5
 
-function loadTable(){
-    if (!isStorageOk()){
+    const bingo = document.querySelector('#bingo')
+    let overlay, bigCalledNumber
+
+    function isStorageOk() {
+        return localStorage.getItem(STORAGE_KEY) === 'initialized'
+    }
+
+    function writeNotCalledInStorage() {
+        console.log('Writing all numbers as non-called in local storage')
+        for (let i = 1; i <= 90; i++) {
+            localStorage.setItem(i, NOT_CALLED)
+        }
+        localStorage.setItem(STORAGE_KEY, 'initialized')
+    }
+
+    function createNumbers() {
+        let tr
+
+        for (let i = 1; i <= 90; i++) {
+            if (i % 10 === 1) {
+                tr = document.createElement('tr')
+            }
+
+            const numberTd = document.createElement('td')
+            const numberDiv = document.createElement('div')
+
+            numberDiv.classList.add('number')
+            if (localStorage.getItem(i) !== NOT_CALLED) {
+                numberDiv.classList.add('called')
+            }
+            numberDiv.id = 'number-' + i
+            numberDiv.textContent = i
+
+            numberTd.appendChild(numberDiv)
+            tr.appendChild(numberTd)
+
+            if (i % 10 === 0) {
+                bingo.appendChild(tr)
+            }
+        }
+    }
+
+    function showBigCalled(calledNumber) {
+        bigCalledNumber.textContent = calledNumber
+        overlay.style.display = 'block'
+    }
+
+    function hideBigCalled() {
+        overlay.style.display = 'none'
+    }
+
+    function resetTable() {
+        console.log('Resetting table status')
+        bingo.querySelectorAll('.number.called').forEach(el => el.classList.remove('called'))
+        localStorage.clear()
         writeNotCalledInStorage()
     }
-    createNumbers()
-}
 
-function createNumbers(){
+    function attachEvents() {
+        bingo.addEventListener('click', function (e) {
+            const target = e.target
+            if (!target.classList.contains('number')) return
 
-    let tr = document.createElement('tr')
+            console.log(target.textContent + ' clicked')
 
-    for (let i = 1; i <= 90; i++) {
-        if (i % 10 === 1) {
-            tr = document.createElement('tr')
-        }
+            if (!target.classList.contains('called')) {
+                target.classList.add('called')
+                localStorage.setItem(target.textContent.trim(), CALLED)
+                showBigCalled(target.textContent)
+                setTimeout(hideBigCalled, CALLED_DURATION * 1000)
+            } else {
+                target.classList.remove('called')
+                localStorage.setItem(target.textContent.trim(), NOT_CALLED)
+            }
+        })
 
-        let numberTd = document.createElement('td')
-        let numberDiv = document.createElement('div')
-        let numberTxt = document.createTextNode(i)
-
-        if (localStorage.getItem(i) === 'false') {
-            numberDiv.setAttribute('class', 'number')
-        }
-        else{
-            numberDiv.setAttribute('class', 'number called')
-        }
-        numberDiv.setAttribute('id', 'number-' + i)
-
-        numberDiv.appendChild(numberTxt)
-        numberTd.appendChild(numberDiv)
-        tr.appendChild(numberTd)
-    
-        if (i % 10 === 0) {
-            tavola.appendChild(tr)
-        }
-      }
-}
-
-function writeNotCalledInStorage(){
-    console.log('Writing all numbers as non-called in local storage')
-    for (let i = 1; i <= 90; i++) {
-        localStorage.setItem(i, false)
+        document.getElementById('btnReset').addEventListener('click', resetTable)
     }
-}
 
-function isStorageOk(){
-    for (let i = 1; i <= 90; i++) {
-        if (localStorage.getItem(i) === null) {            
-            console.log(i + ' is missing from local storage')
-            return false
+    function loadTable() {
+        overlay = document.getElementById('overlay')
+        bigCalledNumber = document.getElementById('big-called-number')
+
+        if (!isStorageOk()) {
+            writeNotCalledInStorage()
         }
+        createNumbers()
+        attachEvents()
     }
-    console.log('Local storage is OK')
-    return true
-}
 
-document.onload = loadTable()
-
-function showBigCalled(calledNumber){
-    let overlayEle = document.getElementById('overlay')
-    let calledNumberElem = document.getElementById('big-called-number')
-    calledNumberElem.firstChild.data = calledNumber
-    overlayEle.style.display = 'block'
-}
-
-function hideBigCalled(){
-    let overlayEle = document.getElementById('overlay')
-    overlayEle.style.display = 'none'
-}
-
-
-tavola.addEventListener('click', function(e){
-    console.log(e.target.innerText + ' clicked')
-    if(e.target.className === "number"){
-        e.target.setAttribute('class', 'number called')
-        localStorage.setItem(e.target.innerText.trim(), true)
-        showBigCalled(e.target.innerText)
-        setTimeout(hideBigCalled, calledDuration * 1000)
-        
-    }
-    else if(e.target.className === "number called"){
-        e.target.setAttribute('class', 'number')
-        localStorage.setItem(e.target.innerText.trim(), false)
-    }
-    
-})
-
-function resetTable(){
-    console.log('Resetting table status')
-    let calledNumbers = tavola.querySelectorAll('.number.called')
-    for (let i = 0; i < calledNumbers.length; i++) {
-        calledNumbers[i].setAttribute('class', 'number')
-    }
-    localStorage.clear()
-    writeNotCalledInStorage()
-}
+    document.addEventListener('DOMContentLoaded', loadTable)
+})()
