@@ -59,7 +59,7 @@ def login():
 @app.route('/logout', methods=['POST'])
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 
 @app.route('/call/<int:number>', methods=['POST'])
